@@ -69,12 +69,8 @@ impl Controller {
     /// * `app` - Reference to the Nannou application for input handling
     pub fn update(&mut self, app: &App) {
         self.menu.update(app);
-        self.menu
-            .music_library
-            .selected_song
-            .update(self.menu.is_playing());
-        self.view
-            .update(self.menu.music_library.selected_song.is_playing());
+        self.menu.song.update(self.menu.is_playing());
+        self.view.update(self.menu.song.is_playing());
     }
 
     /// Renders all application components
